@@ -87,7 +87,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
 
 
   //downsampled and cropper cloud
-  pcl::PointCloud<pcl::PointXYZI>::Ptr filterCloud = pointProcessorI.FilterCloud(inputCloud,0.2,Eigen::Vector4f (-10, -5, -2, 1), Eigen::Vector4f (10, 5, 10, 1));
+  pcl::PointCloud<pcl::PointXYZI>::Ptr filterCloud = pointProcessorI.FilterCloud(inputCloud,0.4,Eigen::Vector4f (-10, -5, -2, 1), Eigen::Vector4f (10, 5, 10, 1));
   //renderPointCloud(viewer,filterCloud,"filterCloud");
 
   //segment road and vehicles
@@ -111,7 +111,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
 
   
   //euclidean clustering
-  std::vector<std::vector<int>> cloudClustersIndices = pointProcessorI.euclideanCluster(points, tree, 0.6);
+  std::vector<std::vector<int>> cloudClustersIndices = pointProcessorI.euclideanCluster(points, tree, 0.7);
   std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> cloudClusters;
 
   //filling vector of clusters point cloud
